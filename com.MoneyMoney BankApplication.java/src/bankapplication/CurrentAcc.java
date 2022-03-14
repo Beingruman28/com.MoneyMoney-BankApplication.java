@@ -1,21 +1,26 @@
 package bankapplication;
 
 public abstract class CurrentAcc extends BankAcc{
-private final float creditLimit;
+private final float creditLimit =  1000;
 	
 	public CurrentAcc (int accNo , String accNm, float accBal , float creditLimit)
 	{
 		super(accNo,accNm,accBal);
-		this.creditLimit =creditLimit;
+		this.getcreditLimit(creditLimit);
 	}
-	public float getcreditLimit() {
+	public float getcreditLimit(float creditLimit)
+	{
 		return creditLimit;
 	}
-	public void withdraw(float wd) {
-		super.withdraw(wd);
+	public float getCreditLimit()
+	{
+		return creditLimit;
+	}
+	public void withdraw(float amount) {
+		System.out.println("your withdraw amount :"+amount);
 	}
 	public String toString() {
-		return super.toString();
+		return "this is a current Account";
 	}	
 }
 

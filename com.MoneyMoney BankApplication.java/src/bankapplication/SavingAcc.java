@@ -1,25 +1,28 @@
 package bankapplication;
 
 public abstract class SavingAcc extends BankAcc{
-	private boolean isSalaried;
-	private static final float MINBAL = 0;
+	private boolean isSalaried ;
+	private static final float MINBAL = 500;
 	
 	public SavingAcc (int accNo , String accNm, float accBal , boolean isSalaried)
 	{
 		super(accNo,accNm,accBal);
-		this.isSalaried = isSalaried;
+		this.setSalaried(isSalaried);
 	}
 	public boolean getisSalaried() {
 		return isSalaried;
 	}
-	public float getdMINBAL() {
+	public void setSalaried(boolean isSalaried) {
+		this.isSalaried = isSalaried;
+	}
+	public static float getdMINBAL() {
 		return MINBAL;
 	}
-	public void withdraw(float wd) {
-		 super.withdraw(wd);
+	public void withdraw(float amount) {
+		System.out.println("withdraw amount :"+amount);
 	}
 	public String toString() {
-		return super.toString();
+	 return "saving acount";
 	}	
 }
 

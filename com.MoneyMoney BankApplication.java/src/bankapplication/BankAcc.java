@@ -8,9 +8,9 @@ public abstract class BankAcc {
     public BankAcc(int accNo , String accNm, float accBal)
     {
     	super();
-    	this.accNo = accNo;
-    	this.accNm = accNm;
-    	this.accBal = accBal;
+    	this.setaccNo(accNo);
+    	this.setaccNm(accNm);
+    	this.setaccBal(accBal);
     }
    public  int getaccNo()
    {
@@ -30,14 +30,22 @@ public abstract class BankAcc {
    {
 	  return accBal ;
    }
-   public void setaccBal(float accBal) {
-	   this.accBal=accBal;
+   public void setaccBal(int accBal) {
+	   this.setaccBal(accBal);
    }
-   public void withdraw(float wd) {
-	   withdraw (wd);
+   public float getAccBal()
+   {
+		return accBal;
 	}
-   public void deposite(float dp) {
-	   deposite (dp);
+	public void setaccBal(float accBal) 
+	{
+		this.accBal = accBal;
+	}
+   public void withdraw(float amount) {
+	   System.out.println(amount);
+	}
+   public void deposite(float dpamount) {
+	   System.out.println(dpamount);
 	}
 	public String toString() {
 		 return toString();
