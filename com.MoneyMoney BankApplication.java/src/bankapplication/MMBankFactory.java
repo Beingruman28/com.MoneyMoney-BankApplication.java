@@ -1,13 +1,16 @@
 package bankapplication;
 
+import org.junit.jupiter.api.Test;
+
 public class MMBankFactory extends BankFactory{
 	private int getMinbal=300;
-	
+	@Test
 	public String  getNewSavingAcc (int accNo , String accNm , float accBal , boolean isSalaried)
 	{
 		return "Saving Account(Account Number :"+accNo+" | Account Name : "+accNm+" | Account Balance : "+accBal+" | Minimum Balance is :"+getMinbal+" | Is salary Account : "+isSalaried+")";
 
 	}
+	@Test
 	public String  getNewCurrentAcc (int accNo , String accNm, float accBal , float creditLimit)
 	{
 		return "Current Account(Account Number :"+accNm+" | Account Name : "+accNm+" | Account Balance : "+accBal+" | Credit Limit Balance is :"+creditLimit+")";

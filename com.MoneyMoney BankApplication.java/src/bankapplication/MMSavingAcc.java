@@ -1,5 +1,9 @@
 package bankapplication;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 public class MMSavingAcc extends SavingAcc{
 private static final float MINBAL = 500;
 	
@@ -38,6 +42,44 @@ private static final float MINBAL = 500;
 		System.out.println(mms1.toString());
 		System.out.println(mms2.toString());
 		System.out.println("Thank You");
+		SessionFactory factory = new Configuration()
+				.configure("hibernate.cfg.xml")
+				//.addAnnotatedClass(BankAcc.class)
+				.addAnnotatedClass(SavingAcc.class)
+				.buildSessionFactory();
+		
+		Session session =factory.getCurrentSession();
+		
+		try {
+			
+			//create object of entity class type 
+		     // BankAcc user = new BankAcc();
+			SavingAcc user = new SavingAcc(40,"sreyas iyer",97222,true);
+			
+			//start transaction
+			session.beginTransaction();
+	
+			
+			
+			//Perform operation
+		     session.save(user);
+			//BankAcc user = session.get(BankAcc.class,123);
+			
+			//Updating object
+			//user.set("human");
+			
+			//deleting object
+		    session.delete(user);
+
+		    //commit the transaction 
+			session.getTransaction().commit();
+			System.out.println(user);
+	
+		}finally {
+			session.close();
+			factory.close();
+	
 	}
 
+}
 }
